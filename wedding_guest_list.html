@@ -1,0 +1,1932 @@
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wedding Guest List — Oct 1, 2027</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage: #8a9e8c; --sage-light: #d6e2d4; --sage-dark: #4a5e4c;
+    --cream: #faf7f2; --cream-dark: #f0ebe2;
+    --ink: #1e1e1e; --ink-mid: #555; --ink-light: #999;
+    --border: #ddd8d0;
+    --confirmed: #4a7c59; --confirmed-bg: #e8f3eb;
+    --declined: #8b3a3a; --declined-bg: #f5e8e8;
+    --pending-bg: #f0ebe2; --maybe-bg: #eef0e8; --maybe: #5a6b3a;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); min-height: 100vh; }
+
+  header { background: var(--sage-dark); color: white; padding: 2.5rem 2rem 2rem; position: relative; overflow: hidden; }
+  header::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.02) 40px, rgba(255,255,255,0.02) 80px); }
+  .header-inner { position: relative; max-width: 1040px; margin: 0 auto; }
+  .header-eyebrow { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--sage-light); margin-bottom: 0.5rem; }
+  header h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; line-height: 1.1; }
+  header h1 em { font-style: italic; color: var(--sage-light); }
+  .header-date { font-size: 13px; color: rgba(255,255,255,0.55); margin-top: 0.5rem; }
+
+  .stats-bar { background: white; border-bottom: 1px solid var(--border); }
+  .stats-inner { max-width: 1040px; margin: 0 auto; }
+  .stats-row { display: flex; align-items: stretch; border-bottom: 1px solid var(--border); }
+  .stats-row:last-child { border-bottom: none; }
+  .stat { flex: 1; padding: 1rem; border-right: 1px solid var(--border); text-align: center; }
+  .stats-row.headline .stat:last-child { border-right: none; }
+  .stats-row.headline .stat { padding: 1.2rem 1.5rem; }
+  .stats-row.categories { flex-wrap: wrap; }
+  .stats-row.categories .stat { padding: 0.7rem 0.5rem; flex: 1 1 18%; min-width: 120px; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; line-height: 1; }
+  .stats-row.categories .stat-num { font-size: 1.4rem; }
+  .stat-label { font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-light); margin-top: 3px; }
+  .stat-sublabel { font-size: 10px; color: var(--ink-light); margin-top: 1px; }
+  .stat.total .stat-num { color: var(--sage-dark); }
+  .stat.primary-stat .stat-num { color: var(--ink); }
+  .stat.secondary-stat .stat-num { color: var(--ink-mid); }
+
+  .main { max-width: 1040px; margin: 0 auto; padding: 2rem; }
+
+  .toolbar { display: flex; gap: 10px; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; }
+  .toolbar input[type="text"] { flex: 1; min-width: 160px; font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: white; color: var(--ink); outline: none; }
+  .toolbar input[type="text"]:focus { border-color: var(--sage); }
+  .toolbar select { font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: white; color: var(--ink); outline: none; cursor: pointer; }
+
+  .add-section { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 1.5rem; }
+  .add-section h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; margin-bottom: 1rem; color: var(--ink-mid); }
+  .add-row { display: grid; grid-template-columns: 1.4fr 0.9fr 0.75fr 1.1fr 0.85fr auto; gap: 8px; align-items: center; }
+  .add-row input, .add-row select { font-family: 'DM Sans', sans-serif; font-size: 13px; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--cream); color: var(--ink); outline: none; width: 100%; }
+  .add-row input:focus, .add-row select:focus { border-color: var(--sage); background: white; }
+  .btn-add { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 8px 18px; background: var(--sage-dark); color: white; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .btn-add:hover { background: var(--sage); }
+
+  .table-wrap { background: white; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+  table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  thead th { font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-light); padding: 12px 10px; text-align: left; background: var(--cream-dark); border-bottom: 1px solid var(--border); }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--cream); }
+  td { padding: 8px 10px; vertical-align: middle; overflow: hidden; }
+
+  .editable { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--ink); background: transparent; border: 1px solid transparent; border-radius: 5px; padding: 4px 6px; width: 100%; outline: none; transition: border-color 0.15s, background 0.15s; }
+  .editable:hover { border-color: var(--border); background: var(--cream); }
+  .editable:focus { border-color: var(--sage); background: white; }
+  .editable.muted { color: var(--ink-mid); font-size: 12px; }
+
+  .cell-select { font-family: 'DM Sans', sans-serif; font-size: 12px; background: transparent; border: 1px solid transparent; border-radius: 5px; padding: 4px 4px; color: var(--ink-mid); cursor: pointer; outline: none; width: 100%; transition: border-color 0.15s, background 0.15s; }
+  .cell-select:hover { border-color: var(--border); background: var(--cream); }
+  .cell-select:focus { border-color: var(--sage); background: white; }
+  .cell-select.badge-confirmed { color: var(--confirmed); }
+  .cell-select.badge-declined { color: var(--declined); }
+  .cell-select.badge-maybe { color: var(--maybe); }
+
+  .btn-del { background: none; border: 1px solid transparent; color: var(--ink-light); cursor: pointer; padding: 4px 7px; border-radius: 5px; font-size: 14px; line-height: 1; transition: color 0.15s, background 0.15s; }
+  .btn-del:hover { color: var(--declined); background: var(--declined-bg); }
+
+  .export-bar { margin-top: 1.5rem; display: flex; gap: 10px; justify-content: flex-end; }
+  .btn-export { font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 500; padding: 9px 20px; border-radius: 6px; cursor: pointer; border: 1px solid var(--sage-dark); color: var(--sage-dark); background: white; }
+  .btn-export:hover { background: var(--cream-dark); }
+  .btn-export.primary { background: var(--sage-dark); color: white; }
+  .btn-export.primary:hover { background: var(--sage); }
+
+  .empty-state { text-align: center; padding: 3rem 1rem; color: var(--ink-light); font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; }
+
+  @media (max-width: 720px) {
+    .add-row { grid-template-columns: 1fr 1fr; }
+    .add-row .btn-add { grid-column: span 2; }
+    header h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-eyebrow">Forest House Lodge · Forest Hill, CA</div>
+    <h1>Our guest list<br><em>October 1, 2027</em></h1>
+    <div class="header-date">Click any cell to edit &nbsp;·&nbsp; Auto-saves in browser &nbsp;·&nbsp; Use "Save as HTML" to export a portable copy</div>
+  </div>
+</header>
+
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stats-row headline">
+      <div class="stat total"><div class="stat-num" id="s-total-all">102</div><div class="stat-label">Total guests</div><div class="stat-sublabel">primary + plus-ones</div></div>
+      <div class="stat primary-stat"><div class="stat-num" id="s-primary">53</div><div class="stat-label">Primary guests</div><div class="stat-sublabel">named invitees</div></div>
+      <div class="stat secondary-stat"><div class="stat-num" id="s-plusones">49</div><div class="stat-label">Plus-ones</div><div class="stat-sublabel">secondary guests</div></div>
+    </div>
+    <div class="stats-row categories">
+      <div class="stat"><div class="stat-num" id="c-imm">8</div><div class="stat-label">Immediate family</div><div class="stat-sublabel" id="c-imm-sub">4 primary · 4 +1s</div></div>
+      <div class="stat"><div class="stat-num" id="c-ext">31</div><div class="stat-label">Extended family</div><div class="stat-sublabel" id="c-ext-sub">17 primary · 14 +1s</div></div>
+      <div class="stat"><div class="stat-num" id="c-friends">63</div><div class="stat-label">Close friends</div><div class="stat-sublabel" id="c-friends-sub">32 primary · 31 +1s</div></div>
+      <div class="stat"><div class="stat-num" id="c-parents">0</div><div class="stat-label">Parent's friends</div><div class="stat-sublabel" id="c-parents-sub">0 primary · 0 +1s</div></div>
+      <div class="stat"><div class="stat-num" id="c-secondary">0</div><div class="stat-label">Secondary</div><div class="stat-sublabel" id="c-secondary-sub">0 primary · 0 +1s</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="add-section">
+    <h3>Add a guest</h3>
+    <div class="add-row">
+      <input type="text" id="inp-name" placeholder="Guest name">
+      <input type="text" id="inp-plus" placeholder="+ Guest / partner">
+      <select id="inp-side">
+        <option value="">Side —</option>
+        <option value="Bride">Bride</option>
+        <option value="Groom">Groom</option>
+        <option value="Both">Both</option>
+      </select>
+      <select id="inp-group">
+        <option value="Immediate family">Immediate family</option>
+        <option value="Extended family">Extended family</option>
+        <option value="Close friends">Close friends</option>
+        <option value="Parent's friend">Parent's friend</option>
+        <option value="Work colleagues">Work colleagues</option>
+        <option value="Secondary">Secondary</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="inp-rsvp">
+        <option value="pending">Pending</option>
+        <option value="confirmed">Confirmed</option>
+        <option value="declined">Declined</option>
+        <option value="maybe">Maybe</option>
+      </select>
+      <button class="btn-add" onclick="addGuest()">+ Add</button>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <input type="text" id="search" placeholder="Search guests…" oninput="renderTable()">
+    <select id="filter-side" onchange="renderTable()">
+      <option value="">All sides</option>
+      <option value="Bride">Bride</option>
+      <option value="Groom">Groom</option>
+      <option value="Both">Both</option>
+    </select>
+    <select id="filter-group" onchange="renderTable()">
+      <option value="">All groups</option>
+      <option>Immediate family</option>
+      <option>Extended family</option>
+      <option>Close friends</option>
+      <option>Parent's friend</option>
+      <option>Work colleagues</option>
+      <option>Secondary</option>
+      <option>Other</option>
+    </select>
+    <select id="filter-rsvp" onchange="renderTable()">
+      <option value="">All RSVP</option>
+      <option value="confirmed">Confirmed</option>
+      <option value="pending">Pending</option>
+      <option value="declined">Declined</option>
+      <option value="maybe">Maybe</option>
+    </select>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:21%">Name</th>
+          <th style="width:15%">+ Guest</th>
+          <th style="width:9%">Side</th>
+          <th style="width:18%">Group</th>
+          <th style="width:11%">RSVP</th>
+          <th style="width:21%">Notes</th>
+          <th style="width:5%"></th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      <tr>
+        <td><input class="editable" value="Gina Turturici" onchange="updateField(1,'name',this.value)"></td>
+        <td><input class="editable muted" value="Mark Fulks" placeholder="—" onchange="updateField(1,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(1,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(1,'group',this.value)">
+            <option value="Immediate family" selected="">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(1,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(1,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(1)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Clara Fulks" onchange="updateField(2,'name',this.value)"></td>
+        <td><input class="editable muted" value="Cole" placeholder="—" onchange="updateField(2,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(2,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(2,'group',this.value)">
+            <option value="Immediate family" selected="">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(2,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(2,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(2)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Heather Keighley" onchange="updateField(3,'name',this.value)"></td>
+        <td><input class="editable muted" value="Jason" placeholder="—" onchange="updateField(3,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(3,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(3,'group',this.value)">
+            <option value="Immediate family" selected="">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(3,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(3,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(3)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Carole Keighley" onchange="updateField(4,'name',this.value)"></td>
+        <td><input class="editable muted" value="Tim" placeholder="—" onchange="updateField(4,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(4,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(4,'group',this.value)">
+            <option value="Immediate family" selected="">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(4,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(4,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(4)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Judy Kitt" onchange="updateField(5,'name',this.value)"></td>
+        <td><input class="editable muted" value="Mike Kitt" placeholder="—" onchange="updateField(5,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(5,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(5,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(5,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(5,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(5)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Juana Fulks" onchange="updateField(6,'name',this.value)"></td>
+        <td><input class="editable muted" value="Dan Fulks" placeholder="—" onchange="updateField(6,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(6,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(6,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(6,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(6,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(6)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Mary Bailey" onchange="updateField(7,'name',this.value)"></td>
+        <td><input class="editable muted" value="Roger" placeholder="—" onchange="updateField(7,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(7,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(7,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(7,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(7,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(7)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Tracy Keighley" onchange="updateField(8,'name',this.value)"></td>
+        <td><input class="editable muted" value="Dave" placeholder="—" onchange="updateField(8,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(8,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(8,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(8,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(8,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(8)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Barb Wynn" onchange="updateField(9,'name',this.value)"></td>
+        <td><input class="editable muted" value="Ken" placeholder="—" onchange="updateField(9,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(9,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(9,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(9,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(9,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(9)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Susan James" onchange="updateField(10,'name',this.value)"></td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(10,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(10,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(10,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(10,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(10,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(10)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Carla Turturici" onchange="updateField(11,'name',this.value)"></td>
+        <td><input class="editable muted" value="+1" placeholder="—" onchange="updateField(11,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(11,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(11,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(11,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(11,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(11)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Kealey Clark" onchange="updateField(12,'name',this.value)"></td>
+        <td><input class="editable muted" value="Taylor" placeholder="—" onchange="updateField(12,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(12,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(12,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(12,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(12,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(12)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Katie Clark" onchange="updateField(13,'name',this.value)"></td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(13,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(13,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(13,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(13,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(13,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(13)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Brittany Keighley" onchange="updateField(14,'name',this.value)"></td>
+        <td><input class="editable muted" value="+1" placeholder="—" onchange="updateField(14,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(14,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(14,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(14,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(14,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(14)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="James Fulks" onchange="updateField(15,'name',this.value)"></td>
+        <td><input class="editable muted" value="Lady" placeholder="—" onchange="updateField(15,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(15,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(15,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(15,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(15,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(15)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Mateo Fulks" onchange="updateField(16,'name',this.value)"></td>
+        <td><input class="editable muted" value="GF" placeholder="—" onchange="updateField(16,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(16,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(16,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(16,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(16,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(16)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Becca Kitt" onchange="updateField(17,'name',this.value)"></td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(17,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(17,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(17,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(17,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(17,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(17)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Sean Bailey" onchange="updateField(18,'name',this.value)"></td>
+        <td><input class="editable muted" value="Danny Bailey" placeholder="—" onchange="updateField(18,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(18,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(18,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(18,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(18,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(18)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Joey Kitt" onchange="updateField(19,'name',this.value)"></td>
+        <td><input class="editable muted" value="Cat Food" placeholder="—" onchange="updateField(19,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(19,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(19,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(19,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(19,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(19)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Ritu" onchange="updateField(20,'name',this.value)"></td>
+        <td><input class="editable muted" value="Sarabh" placeholder="—" onchange="updateField(20,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(20,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(20,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(20,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(20,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(20)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Mary Webster" onchange="updateField(21,'name',this.value)"></td>
+        <td><input class="editable muted" value="Wade" placeholder="—" onchange="updateField(21,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(21,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(21,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family" selected="">Extended family</option><option value="Close friends">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(21,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(21,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(21)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Natalie Schaeffer" onchange="updateField(22,'name',this.value)"></td>
+        <td><input class="editable muted" value="Fletch" placeholder="—" onchange="updateField(22,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(22,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(22,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(22,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(22,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(22)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Sonia Paulo" onchange="updateField(23,'name',this.value)"></td>
+        <td><input class="editable muted" value="+1" placeholder="—" onchange="updateField(23,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(23,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(23,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(23,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(23,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(23)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Kendall Winn" onchange="updateField(24,'name',this.value)"></td>
+        <td><input class="editable muted" value="Cody Warford" placeholder="—" onchange="updateField(24,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(24,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(24,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(24,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(24,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(24)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Lindsey Smith" onchange="updateField(25,'name',this.value)"></td>
+        <td><input class="editable muted" value="Zach Scott" placeholder="—" onchange="updateField(25,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(25,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(25,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(25,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(25,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(25)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Sanjna Tandon" onchange="updateField(26,'name',this.value)"></td>
+        <td><input class="editable muted" value="+1" placeholder="—" onchange="updateField(26,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(26,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(26,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(26,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(26,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(26)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Jaclyn Palumbo" onchange="updateField(27,'name',this.value)"></td>
+        <td><input class="editable muted" value="Jordan" placeholder="—" onchange="updateField(27,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(27,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(27,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(27,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(27,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(27)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Nilab" onchange="updateField(28,'name',this.value)"></td>
+        <td><input class="editable muted" value="Lauren" placeholder="—" onchange="updateField(28,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(28,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(28,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(28,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(28,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(28)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Shwetha Karthik" onchange="updateField(29,'name',this.value)"></td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(29,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(29,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(29,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(29,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(29,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(29)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Chris Hinds" onchange="updateField(30,'name',this.value)"></td>
+        <td><input class="editable muted" value="Liv" placeholder="—" onchange="updateField(30,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(30,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(30,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(30,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(30,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(30)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Ashton Kershner" onchange="updateField(31,'name',this.value)"></td>
+        <td><input class="editable muted" value="+1" placeholder="—" onchange="updateField(31,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(31,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(31,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(31,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(31,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(31)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Victoria Rod" onchange="updateField(32,'name',this.value)"></td>
+        <td><input class="editable muted" value="Joe" placeholder="—" onchange="updateField(32,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(32,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(32,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(32,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(32,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(32)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Alex Katz" onchange="updateField(33,'name',this.value)"></td>
+        <td><input class="editable muted" value="Derya" placeholder="—" onchange="updateField(33,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(33,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(33,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(33,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(33,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(33)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Spencer Cahin" onchange="updateField(34,'name',this.value)"></td>
+        <td><input class="editable muted" value="Lily" placeholder="—" onchange="updateField(34,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(34,'side',this.value)">
+            <option value="" selected="">—</option><option value="Bride">Bride</option><option value="Groom">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(34,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(34,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(34,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(34)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Danny Camburn" onchange="updateField(35,'name',this.value)"></td>
+        <td><input class="editable muted" value="Krysta Camburn" placeholder="—" onchange="updateField(35,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(35,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(35,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(35,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(35,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(35)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Cory Page" onchange="updateField(36,'name',this.value)"></td>
+        <td><input class="editable muted" value="Whitney Page" placeholder="—" onchange="updateField(36,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(36,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(36,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(36,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(36,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(36)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Kirk Wilenius" onchange="updateField(37,'name',this.value)"></td>
+        <td><input class="editable muted" value="Kristen Wilenius" placeholder="—" onchange="updateField(37,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(37,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(37,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(37,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(37,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(37)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Liam Jennis" onchange="updateField(38,'name',this.value)"></td>
+        <td><input class="editable muted" value="Zoe Ward" placeholder="—" onchange="updateField(38,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(38,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(38,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(38,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(38,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(38)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Jordan Horillo" onchange="updateField(39,'name',this.value)"></td>
+        <td><input class="editable muted" value="Natalie Clint" placeholder="—" onchange="updateField(39,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(39,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(39,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(39,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(39,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(39)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Chris Strickland" onchange="updateField(40,'name',this.value)"></td>
+        <td><input class="editable muted" value="Lindsey Strickland" placeholder="—" onchange="updateField(40,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(40,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(40,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(40,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(40,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(40)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Del Wilkinsoin" onchange="updateField(41,'name',this.value)"></td>
+        <td><input class="editable muted" value="Quinn" placeholder="—" onchange="updateField(41,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(41,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(41,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(41,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(41,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(41)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Tim McLaughlin" onchange="updateField(42,'name',this.value)"></td>
+        <td><input class="editable muted" value="Haley" placeholder="—" onchange="updateField(42,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(42,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(42,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(42,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(42,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(42)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Andrew Nelms" onchange="updateField(43,'name',this.value)"></td>
+        <td><input class="editable muted" value="Charlotte" placeholder="—" onchange="updateField(43,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(43,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(43,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(43,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(43,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(43)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Kenton Assadi" onchange="updateField(44,'name',this.value)"></td>
+        <td><input class="editable muted" value="Bella" placeholder="—" onchange="updateField(44,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(44,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(44,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(44,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(44,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(44)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Gordy Deacon" onchange="updateField(45,'name',this.value)"></td>
+        <td><input class="editable muted" value="Anna Deacon" placeholder="—" onchange="updateField(45,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(45,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(45,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(45,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(45,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(45)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Tyler Testman" onchange="updateField(46,'name',this.value)"></td>
+        <td><input class="editable muted" value="Elyse" placeholder="—" onchange="updateField(46,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(46,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(46,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(46,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(46,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(46)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Ian Bixby" onchange="updateField(47,'name',this.value)"></td>
+        <td><input class="editable muted" value="Girlfriend" placeholder="—" onchange="updateField(47,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(47,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(47,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(47,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(47,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(47)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Adam Helfenbein" onchange="updateField(48,'name',this.value)"></td>
+        <td><input class="editable muted" value="Amy" placeholder="—" onchange="updateField(48,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(48,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(48,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(48,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(48,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(48)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Alex Medin" onchange="updateField(49,'name',this.value)"></td>
+        <td><input class="editable muted" value="Nichole" placeholder="—" onchange="updateField(49,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(49,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(49,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(49,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(49,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(49)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Nick Zanobini" onchange="updateField(50,'name',this.value)"></td>
+        <td><input class="editable muted" value="Kate Zanobini" placeholder="—" onchange="updateField(50,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(50,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(50,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(50,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(50,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(50)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Emanuel DiStasio" onchange="updateField(51,'name',this.value)"></td>
+        <td><input class="editable muted" value="Rachel" placeholder="—" onchange="updateField(51,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(51,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(51,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(51,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(51,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(51)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="Akio Ohtake-Gordon" onchange="updateField(52,'name',this.value)"></td>
+        <td><input class="editable muted" value="Corinne" placeholder="—" onchange="updateField(52,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(52,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(52,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(52,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(52,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(52)" title="Remove">✕</button></td>
+      </tr>
+      <tr>
+        <td><input class="editable" value="James Anderson" onchange="updateField(53,'name',this.value)"></td>
+        <td><input class="editable muted" value="Natalie Haber" placeholder="—" onchange="updateField(53,'plus',this.value)"></td>
+        <td>
+          <select class="cell-select" onchange="updateField(53,'side',this.value)">
+            <option value="">—</option><option value="Bride">Bride</option><option value="Groom" selected="">Groom</option><option value="Both">Both</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(53,'group',this.value)">
+            <option value="Immediate family">Immediate family</option><option value="Extended family">Extended family</option><option value="Close friends" selected="">Close friends</option><option value="Parent's friend">Parent's friend</option><option value="Work colleagues">Work colleagues</option><option value="Secondary">Secondary</option><option value="Other">Other</option>
+          </select>
+        </td>
+        <td>
+          <select class="cell-select " onchange="updateField(53,'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            <option value="pending" selected="">pending</option><option value="confirmed">confirmed</option><option value="declined">declined</option><option value="maybe">maybe</option>
+          </select>
+        </td>
+        <td><input class="editable muted" value="" placeholder="—" onchange="updateField(53,'notes',this.value)"></td>
+        <td><button class="btn-del" onclick="deleteGuest(53)" title="Remove">✕</button></td>
+      </tr></tbody>
+    </table>
+    <div id="empty" class="empty-state" style="display: none;">No guests match your filters.</div>
+  </div>
+
+  <div class="export-bar">
+    <button class="btn-export" onclick="exportCSV()">Export CSV</button>
+    <button class="btn-export primary" onclick="saveHTML()">Save as HTML</button>
+  </div>
+</div>
+
+<script>
+const GROUPS   = ['Immediate family','Extended family','Close friends',"Parent's friend",'Work colleagues','Secondary','Other'];
+const SIDES    = ['','Bride','Groom','Both'];
+const RSVPS    = ['pending','confirmed','declined','maybe'];
+const STORE_KEY = 'weddingGuests_v3';
+
+const SEED = [
+  {
+    "name": "Gina Turturici",
+    "plus": "Mark Fulks",
+    "side": "",
+    "group": "Immediate family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Clara Fulks",
+    "plus": "Cole",
+    "side": "",
+    "group": "Immediate family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Heather Keighley",
+    "plus": "Jason",
+    "side": "Groom",
+    "group": "Immediate family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Carole Keighley",
+    "plus": "Tim",
+    "side": "Groom",
+    "group": "Immediate family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Judy Kitt",
+    "plus": "Mike Kitt",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Juana Fulks",
+    "plus": "Dan Fulks",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Mary Bailey",
+    "plus": "Roger",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Tracy Keighley",
+    "plus": "Dave",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Barb Wynn",
+    "plus": "Ken",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Susan James",
+    "plus": "",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Carla Turturici",
+    "plus": "+1",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Kealey Clark",
+    "plus": "Taylor",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Katie Clark",
+    "plus": "",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Brittany Keighley",
+    "plus": "+1",
+    "side": "Groom",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "James Fulks",
+    "plus": "Lady",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Mateo Fulks",
+    "plus": "GF",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Becca Kitt",
+    "plus": "",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Sean Bailey",
+    "plus": "Danny Bailey",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Joey Kitt",
+    "plus": "Cat Food",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Ritu",
+    "plus": "Sarabh",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Mary Webster",
+    "plus": "Wade",
+    "side": "",
+    "group": "Extended family",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Natalie Schaeffer",
+    "plus": "Fletch",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Sonia Paulo",
+    "plus": "+1",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Kendall Winn",
+    "plus": "Cody Warford",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Lindsey Smith",
+    "plus": "Zach Scott",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Sanjna Tandon",
+    "plus": "+1",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Jaclyn Palumbo",
+    "plus": "Jordan",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Nilab",
+    "plus": "Lauren",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Shwetha Karthik",
+    "plus": "",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Chris Hinds",
+    "plus": "Liv",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Ashton Kershner",
+    "plus": "+1",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Victoria Rod",
+    "plus": "Joe",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Alex Katz",
+    "plus": "Derya",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Spencer Cahin",
+    "plus": "Lily",
+    "side": "",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Danny Camburn",
+    "plus": "Krysta Camburn",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Cory Page",
+    "plus": "Whitney Page",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Kirk Wilenius",
+    "plus": "Kristen Wilenius",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Liam Jennis",
+    "plus": "Zoe Ward",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Jordan Horillo",
+    "plus": "Natalie Clint",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Chris Strickland",
+    "plus": "Lindsey Strickland",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Del Wilkinsoin",
+    "plus": "Quinn",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Tim McLaughlin",
+    "plus": "Haley",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Andrew Nelms",
+    "plus": "Charlotte",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Kenton Assadi",
+    "plus": "Bella",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Gordy Deacon",
+    "plus": "Anna Deacon",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Tyler Testman",
+    "plus": "Elyse",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Ian Bixby",
+    "plus": "Girlfriend",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Adam Helfenbein",
+    "plus": "Amy",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Alex Medin",
+    "plus": "Nichole",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Nick Zanobini",
+    "plus": "Kate Zanobini",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Emanuel DiStasio",
+    "plus": "Rachel",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "Akio Ohtake-Gordon",
+    "plus": "Corinne",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  },
+  {
+    "name": "James Anderson",
+    "plus": "Natalie Haber",
+    "side": "Groom",
+    "group": "Close friends",
+    "rsvp": "pending",
+    "notes": ""
+  }
+];
+
+let guests = [];
+let nextId = 1;
+
+function load() {
+  try {
+    const saved = localStorage.getItem(STORE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        guests = parsed.map(g => ({ ...g, id: nextId++ }));
+        return;
+      }
+    }
+  } catch(e) {}
+  guests = SEED.map(g => ({ ...g, id: nextId++ }));
+  persist();
+}
+
+function persist() {
+  try {
+    localStorage.setItem(STORE_KEY, JSON.stringify(guests.map(({id,...g}) => g)));
+  } catch(e) {}
+}
+
+function addGuest() {
+  const name = document.getElementById('inp-name').value.trim();
+  if (!name) { document.getElementById('inp-name').focus(); return; }
+  guests.push({
+    id: nextId++,
+    name,
+    plus: document.getElementById('inp-plus').value.trim(),
+    side: document.getElementById('inp-side').value,
+    group: document.getElementById('inp-group').value,
+    rsvp: document.getElementById('inp-rsvp').value,
+    notes: ''
+  });
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-plus').value = '';
+  persist();
+  renderTable();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('inp-name').addEventListener('keydown', e => { if (e.key === 'Enter') addGuest(); });
+});
+
+function updateField(id, field, val) {
+  const g = guests.find(x => x.id === id);
+  if (g) { g[field] = val; persist(); updateStats(); }
+}
+
+function deleteGuest(id) {
+  if (!confirm('Remove this guest?')) return;
+  guests = guests.filter(x => x.id !== id);
+  persist();
+  renderTable();
+}
+
+function rsvpClass(r) {
+  return {confirmed:'badge-confirmed',declined:'badge-declined',maybe:'badge-maybe'}[r] || '';
+}
+
+function hasPlusOne(g) {
+  const p = (g.plus || '').trim();
+  return p !== '' && p !== '—';
+}
+
+function catStats(grp) {
+  const gs = guests.filter(g => g.group === grp);
+  const pri = gs.length, plus = gs.filter(hasPlusOne).length;
+  return { pri, plus, total: pri + plus };
+}
+
+function updateStats() {
+  const pri  = guests.length;
+  const plus = guests.filter(hasPlusOne).length;
+  document.getElementById('s-total-all').textContent = pri + plus;
+  document.getElementById('s-primary').textContent   = pri;
+  document.getElementById('s-plusones').textContent  = plus;
+
+  const cats = [
+    ['c-imm',     'Immediate family'],
+    ['c-ext',     'Extended family'],
+    ['c-friends', 'Close friends'],
+    ['c-parents', "Parent's friend"],
+    ['c-secondary', null],
+  ];
+  cats.forEach(([pfx, grp]) => {
+    let s;
+    if (grp) {
+      s = catStats(grp);
+    } else {
+      const wk  = catStats('Work colleagues');
+      const sec = catStats('Secondary');
+      const oth = catStats('Other');
+      s = { pri: wk.pri+sec.pri+oth.pri, plus: wk.plus+sec.plus+oth.plus, total: wk.total+sec.total+oth.total };
+    }
+    document.getElementById(pfx).textContent     = s.total;
+    document.getElementById(pfx+'-sub').textContent = `${s.pri} primary · ${s.plus} +1s`;
+  });
+}
+
+function esc(s) {
+  return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderTable() {
+  const search = document.getElementById('search').value.toLowerCase();
+  const fside  = document.getElementById('filter-side').value;
+  const fgroup = document.getElementById('filter-group').value;
+  const frsvp  = document.getElementById('filter-rsvp').value;
+
+  const filtered = guests.filter(g => {
+    const ms     = !search || g.name.toLowerCase().includes(search) || (g.plus||'').toLowerCase().includes(search) || (g.notes||'').toLowerCase().includes(search);
+    const mside  = !fside  || (g.side||'') === fside;
+    const mgroup = !fgroup || g.group === fgroup;
+    const mrsvp  = !frsvp  || g.rsvp  === frsvp;
+    return ms && mside && mgroup && mrsvp;
+  });
+
+  const tbody = document.getElementById('tbody');
+  const empty = document.getElementById('empty');
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map(g => `
+      <tr>
+        <td><input class="editable" value="${esc(g.name)}" onchange="updateField(${g.id},'name',this.value)" /></td>
+        <td><input class="editable muted" value="${esc(g.plus)}" placeholder="—" onchange="updateField(${g.id},'plus',this.value)" /></td>
+        <td>
+          <select class="cell-select" onchange="updateField(${g.id},'side',this.value)">
+            ${SIDES.map(s => `<option value="${s}"${(g.side||'')=== s?' selected':''}>${s||'—'}</option>`).join('')}
+          </select>
+        </td>
+        <td>
+          <select class="cell-select" onchange="updateField(${g.id},'group',this.value)">
+            ${GROUPS.map(gr => `<option value="${gr}"${g.group===gr?' selected':''}>${gr}</option>`).join('')}
+          </select>
+        </td>
+        <td>
+          <select class="cell-select ${rsvpClass(g.rsvp)}" onchange="updateField(${g.id},'rsvp',this.value);this.className='cell-select '+rsvpClass(this.value)">
+            ${RSVPS.map(r => `<option value="${r}"${g.rsvp===r?' selected':''}>${r}</option>`).join('')}
+          </select>
+        </td>
+        <td><input class="editable muted" value="${esc(g.notes||'')}" placeholder="—" onchange="updateField(${g.id},'notes',this.value)" /></td>
+        <td><button class="btn-del" onclick="deleteGuest(${g.id})" title="Remove">✕</button></td>
+      </tr>`).join('');
+  }
+  updateStats();
+}
+
+function exportCSV() {
+  const rows = [['Name','+ Guest','Side','Group','RSVP','Notes']];
+  guests.forEach(g => rows.push([g.name, g.plus||'', g.side||'', g.group, g.rsvp, g.notes||'']));
+  const csv = rows.map(r => r.map(c => `"${(c||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+  const a = document.createElement('a');
+  a.href = 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv);
+  a.download = 'wedding_guests.csv';
+  a.click();
+}
+
+function saveHTML() {
+  const clean = guests.map(({id,...g}) => g);
+  const src   = document.documentElement.outerHTML;
+  const out   = src.replace(/const SEED = \[[\s\S]*?\];/, 'const SEED = ' + JSON.stringify(clean, null, 2) + ';');
+  const blob  = new Blob([out], {type:'text/html'});
+  const a     = document.createElement('a');
+  a.href      = URL.createObjectURL(blob);
+  a.download  = 'wedding_guest_list.html';
+  a.click();
+}
+
+load();
+renderTable();
+</script>
+
+
+</body></html>
